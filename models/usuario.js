@@ -36,7 +36,8 @@ const UsuarioSchema = Schema({   // nuestro esquema de usuario
 });
 // Método para ocultar la version y la cotraeña
 UsuarioSchema.methods.toJSON = function(){
-    const { __v, password, ...usuario } = this.toObject();
+    const { __v, password, _id, ...usuario } = this.toObject(); // lo que no quiero mostrar del objeto
+    usuario.uid = _id; // reemplazo el nombre
     return usuario;
 }
 

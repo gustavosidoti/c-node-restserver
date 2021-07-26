@@ -80,10 +80,12 @@ const usuariosPatch = (req, res = response) => { // el get de usuarios
 
 const usuariosDelete = async (req, res = response) => { // el get de usuarios
 
-    const { id } = req.params; // rescatamos el id de lo que trae la búsqueda  
+    const { id } = req.params; // rescatamos el id de lo que trae la búsqueda 
      
     // Borramos usuario actualizando su estado
     const usuario = await Usuario.findByIdAndUpdate( id, {estado:false } );
+
+    
     
     res.json({
             usuario
