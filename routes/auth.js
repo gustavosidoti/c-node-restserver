@@ -8,7 +8,7 @@ const { check } = require('express-validator');
 // importaciones internas
 
 const { validarCampos } = require('../middlewares/validar-campos');
-const { login } = require('../controllers/auth');
+const { login, googleSignin } = require('../controllers/auth');
 
 // código de este archivo
 
@@ -16,11 +16,17 @@ const { login } = require('../controllers/auth');
 
 const router = Router();
 
-router.post('/login', [
+router.post('/login', [  // tienen que venir esos datos en la petición
     check('correo', 'El correo es obligatorio').isEmail(),
     check('password', 'La contraseña es obligatoria').not().isEmpty(),
     validarCampos
-],login );
+],login ); // llamada a ese controlador
+
+
+router.post('/google', [ // tiene que venir el id_token
+    check('id_token', 'El id_token es necesario').not().isEmpty(),
+    validarCampos
+],googleSignin ); // llamamos a ese controlador
 
 // EXPORTACIONES 
 module.exports = router;
