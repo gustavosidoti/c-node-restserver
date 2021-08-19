@@ -1,0 +1,1 @@
+# En este directorio se almacenarán las imagenes de Usuarios y Productos

@@ -1,3 +1,5 @@
+// MODELO DE PRODUCTO
+
 const {Schema, model } = require('mongoose');
 
 const ProductoSchema = Schema({
@@ -31,6 +33,7 @@ const ProductoSchema = Schema({
 
     descripcion: { type: String },
     disponible: {type: Boolean, default: true },
+    img: { type: String },
 });
 
 // Método para ocultar la version y el estado
